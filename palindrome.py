@@ -6,4 +6,4 @@ def is_palindrome(word):
     else : 
         return False
 
-print(is_parindrome('dad')) 
+print(is_palindrome('dad')) 
