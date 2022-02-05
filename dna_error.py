@@ -28,4 +28,4 @@ def dna_errors(dna_1,dna_2):
                     error += 2
     return error
 
-print(dna_error('GGGA-GAATCTCTGGACT',"CTCTACTTA-AGACCGGTACAGG"))
+print(dna_errors('GGGA-GAATCTCTGGACT',"CTCTACTTA-AGACCGGTACAGG"))
