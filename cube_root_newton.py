@@ -1,14 +1,11 @@
 def func(iter,num):
-    ans = ((iter)**3 - num) / (3* ((iter)**(2)))
+    ans = 0.5
+    for i in range(20):
+        ans -= ((iter)**3 - num) / (3* ((iter)**(2)))
+        iter = ans
     return ans
 
 x = int(input('Enter a number: '))
-
-sum = 0.5
-iter = 0.5
-for i in range(1000):
-    sum -= func(iter,x)
-    iter = sum
+print(func(0.5,x))
 
 
-print(sum)
