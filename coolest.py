@@ -2,41 +2,35 @@
 
 def coolest(file):
     with open(file,'r') as f:
-        data = [i for i in f.read().split()]
-        name = []
-        for i in range (0,len(data)) :
-            if i%2 != 0 and  data[i] not in name:
-                name.append(data[i])
-        print(name)
-        follower = []
-        for i in range (0,len(data)) :
-            if i%2 == 0 and  data[i] not in follower:
-                follower.append(data[i])
-
-        right = []
-        for i in range (0,len(data)) :
-            if i%2 != 0 and  data[i]:
-                right.append(data[i])
-        print(right)
-        count = []
-        for i in name:
-            c = 0
-            for j in  range (0,len(data)):
-                 if j%2 != 0 :
-                    if i == data[j]:
-                        c += 1
-            count.append(c)
-        print(count)
-
-        score = []
-        for i in range(0,len(name)):
-            for j in range(0,len(follower)):
+        follower = {}
+        with open(file) as f:
+            for line in f:
+                name1, name2 = line.split()
+                if name2 in follower:
+                    follower[name2].append(name1)
+                else:
+                    follower[name2] = [name1]
                 
-                
+        most_popular = ""
+        popularity = -1
+        for name, list in follower.items():
+            current_popularity = 0
+            for n in list:
+                if n in follower:
+                    current_popularity += len(follower[n])
+            if current_popularity > popularity:
+                most_popular = name
+                popularity = current_popularity
+            elif  current_popularity == popularity and name < most_popular:
+                most_popular = name
+
+
+        return most_popular
+        
 
 
                         
         
 
 
-coolest('file/twitter.txt')
+print(coolest('file/twitter.txt'))
