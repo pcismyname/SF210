@@ -1,5 +1,3 @@
-
-
 def coolest(file):
     with open(file,'r') as f:
         follower = {}

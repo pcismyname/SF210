@@ -1,11 +1,12 @@
 def remove_duplicates(word):
-    new = ''
-    for i in range(0,len(word)):
-        for j in range(i+1,len(word)-1):
-            if word[i] == word[j]:
-                continue
+    rng = len(word)
+    new = ""
+    for i in range(rng):
+        if  new != "" and (new[-1] == word[i]):
+            continue
+        new += word[i]
+    return new
             
-
-    return word
+            
 
 print(remove_duplicates('bookkeeeeeper'))

@@ -4,6 +4,8 @@ def top_bot(n):
             print(' ',end='')
         print('||')
 
+
+
 def mid1(n):
     for i in range(n):
         for space in range(3*(n-i-1)):
@@ -16,6 +18,8 @@ def mid1(n):
             print(':::',end='')
         print('\__',end='')
         print()
+
+
 def mid2(n):
     print('|'+ 6*n*'"' + '|')
     for i in range(n):
@@ -34,10 +38,3 @@ def draw(n):
     mid1(n)
     mid2(n)
     top_bot(n)
-
-
-draw(1)
-print()
-draw(2)
-print()
-draw(10)
