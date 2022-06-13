@@ -8,6 +8,7 @@ def mathQuestion(a, b):
     operator = random.choice(operators)
     operand = str(random.randint(a, b))
     question += f" {operator} {operand}"
+  print(question)
   return question
 
 def mathQuiz(n, a, b):
@@ -28,4 +29,15 @@ def mathQuiz(n, a, b):
       print(f"The correct answer is {answer}")
   print(f"Your score is {score}")
 
-mathQuiz(3,1,10)
+
+def new_equation():
+    question = str(random.randint(1,9)) #equation start with number
+    operands = random.randint(2,4)
+    operators =  ['+', '-', '*', '/']
+    for i in range(operands-1):
+        operator = random.choice(operators)
+        operand = str(random.randint(1, 9))
+        question += f" {operator} {operand}"
+    return question
+
+print(new_equation())
