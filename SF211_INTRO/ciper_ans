@@ -1,0 +1,30 @@
+from itertools import product, permutations, chain
+
+def checkio(crossword, words):
+    flattened = crossword[0::2] + list(map(list, zip(*crossword)))[0::2]
+    flattened = list(chain.from_iterable(flattened))
+    expected = len(set(chain.from_iterable(words)))
+    placement = [set(zip(flattened, chain.from_iterable(w))) for w in permutations(words)]
+    placement = [{k: v for k, v in p} for p in placement if len(p) == expected][0]
+    return [[placement[x] if x else ' ' for x in row] for row in crossword]
+
+
+
+
+
+print(checkio(
+        [
+            [21, 6, 25, 25, 17],
+            [14, 0, 6, 0, 2],
+            [1, 11, 16, 1, 17],
+            [11, 0, 16, 0, 5],
+            [26, 3, 14, 20, 6],
+        ],
+        ["hello", "habit", "lemma", "ozone", "bimbo", "trace"],
+    ) == [
+        ["h", "e", "l", "l", "o"],
+        ["a", " ", "e", " ", "z"],
+        ["b", "i", "m", "b", "o"],
+        ["i", " ", "m", " ", "n"],
+        ["t", "r", "a", "c", "e"],
+    ])
